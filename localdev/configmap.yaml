@@ -113,7 +113,7 @@ neuvector:
 
 sso:
   client_id: il2_eb21db65-3118-4017-bfe7-86829038d3dc_apps
-  client_secret: "123456789"
+  client_secret: "123456789a"
   name: SSO
   url: https://login.gw.local/auth/realms/gamewarden
   # certificateAuthority:
@@ -156,7 +156,7 @@ grafana:
         api_url: "https://login.gw.local/auth/realms/gamewarden/protocol/openid-connect/userinfo"
         auth_url: "https://login.gw.local/auth/realms/gamewarden/protocol/openid-connect/auth"
         client_id: "il2_eb21db65-3118-4017-bfe7-86829038d3dc_apps" #gitleaks:allow
-        client_secret: "123456789"
+        client_secret: "123456789a"
         enabled: true
         groups_attribute_path: "groups"
         name: "Game Warden SSO"
@@ -171,16 +171,16 @@ addons:
     enabled: true
     chains:
       APP:
-        callback_uri: https://APP.gw.local
+        callback_uri: https://APP.gw.local/oauth/callback_uri/
         client_id: il2_eb21db65-3118-4017-bfe7-86829038d3dc_apps
-        client_secret: "123456789"
+        client_secret: "123456789a"
         match:
           prefix: "APP.gw.local"
   argocd:
     enabled: true
     sso:
       client_id: "il2_eb21db65-3118-4017-bfe7-86829038d3dc_apps" #gitleaks:allow
-      client_secret: "123456789"
+      client_secret: "123456789a"
       enabled: true
     values:
       server:
@@ -221,7 +221,7 @@ addons:
                     - $values/app/ENV.yaml
                 path: ./
                 repoURL: https://github.com/second-front/uchart.git
-                targetRevision: 1.0.10
+                targetRevision: 1.0.36
               - ref: values
                 repoURL: https://github.com/lykkin/gwtester
                 targetRevision: main
@@ -266,6 +266,8 @@ addons:
               spec:
                 tls: null
     values:
+      serviceAccount:
+        automountServiceAccountToken: false
       replicas: 1
       args:
         - "start-dev"

@@ -3,9 +3,17 @@ configMapGenerator:
   files:
   - values.yaml=configmap.yaml
   name: environment
+- name: gamewarden-realm
+  behavior: create
+  options:
+    disableNameSuffixHash: true
+  namespace: keycloak
+  files:
+  - realm.json=realm.json
 
 resources:
 - ../base
+- ns-keycloak.yaml
 
 patches:
 - patch: |-
