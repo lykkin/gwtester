@@ -5,7 +5,7 @@ configMapGenerator:
   name: common
 
 resources:
-- https://repo1.dso.mil/platform-one/big-bang/bigbang.git/base?ref=2.47.0
+- https://repo1.dso.mil/platform-one/big-bang/bigbang.git/base?ref=2.49.0
 - helmrepo.yaml
 - cosignsecret.yaml
 
@@ -21,7 +21,7 @@ patches:
       chart:
         spec:
           chart: bigbang
-          version: 2.47.0
+          version: 2.49.0
           sourceRef:
             kind: HelmRepository
             name: registry1
