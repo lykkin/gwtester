@@ -194,6 +194,7 @@ addons:
         extraArgs:
         - --repo-server-plaintext
       redis-bb:
+        platform: linux/amd64
         networkPolicy:
           enabled: false
       argocd-apps:
