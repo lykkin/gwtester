@@ -6,6 +6,7 @@ certs
 
 # Ignore encryption private key file
 keys.txt
+*.swp
 
 # Ignore local env files
 .env
