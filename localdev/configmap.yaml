@@ -28,6 +28,9 @@ monitoring:
             cpu: 200m
             memory: 1Gi
 
+tempo:
+  enabled: false
+
 loki:
   sourceType: helmRepo
   enabled: false
