@@ -74,7 +74,7 @@ loki:
             mode: PERMISSIVE
 promtail:
   sourceType: helmRepo
-  enabled: true
+  enabled: false
 
 kyverno:
   sourceType: helmRepo
