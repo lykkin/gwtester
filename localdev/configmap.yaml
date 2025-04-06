@@ -217,7 +217,7 @@ addons:
             info:
               - name: url
                 value: https://github.com/second-front/uchart
-            name: APP-ENV
+            name: app-env
             namespace: argocd
             project: default
             sources:
