@@ -30,7 +30,7 @@ monitoring:
 
 loki:
   sourceType: helmRepo
-  enabled: true
+  enabled: false
   strategy: scalable
   values:
     minio:
