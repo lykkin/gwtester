@@ -193,11 +193,12 @@ addons:
       controller:
         extraArgs:
         - --repo-server-plaintext
-      redis-bb:
+      redis:
         host: redis
         port: 6379
-        networkPolicy:
-          enabled: false
+#      redis-bb:
+#        networkPolicy:
+#          enabled: false
       argocd-apps:
         applications:
           - destination:
