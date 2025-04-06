@@ -1,4 +1,14 @@
 apiVersion: v1
+kind: Namespace
+metadata:
+  name: argocd
+  annotations:
+    meta.helm.sh/release-name: bigbang
+    meta.helm.sh/release-namespace: bigbang
+  labels:
+    app.kubernetes.io/managed-by: Helm
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: redis
@@ -32,4 +42,26 @@ spec:
         items:
         - key: redis-config
           path: redis.conf
-
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: argocd
+spec:
+  selector:
+    app.kubernetes.io/name: redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379
+--
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: argocd
+  name: redis-config
+data:
+  redis-config: |
+    maxmemory 2mb
+    maxmemory-policy allkeys-lru    
