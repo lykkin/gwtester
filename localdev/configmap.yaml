@@ -194,7 +194,8 @@ addons:
         extraArgs:
         - --repo-server-plaintext
       redis-bb:
-        platform: linux/amd64
+	host: asd-f
+	port: 6379
         networkPolicy:
           enabled: false
       argocd-apps:
