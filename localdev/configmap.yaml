@@ -194,7 +194,7 @@ addons:
         extraArgs:
         - --repo-server-plaintext
       redis-bb:
-	host: asd-f
+	host: redis
 	port: 6379
         networkPolicy:
           enabled: false
