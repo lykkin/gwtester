@@ -178,6 +178,9 @@ addons:
           prefix: "APP.gw.local"
   argocd:
     enabled: true
+    redis:
+      host: redis
+      port: 6379
     sso:
       client_id: "il2_eb21db65-3118-4017-bfe7-86829038d3dc_apps" #gitleaks:allow
       client_secret: "123456789a"
@@ -193,9 +196,6 @@ addons:
       controller:
         extraArgs:
         - --repo-server-plaintext
-      redis:
-        host: redis
-        port: 6379
 #      redis-bb:
 #        networkPolicy:
 #          enabled: false

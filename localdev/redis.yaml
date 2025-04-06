@@ -50,13 +50,22 @@ kind: Service
 metadata:
   name: redis
   namespace: argocd
+  labels:
+    app.kubernetes.io/component: master
+    app.kubernetes.io/instance: argocd-argocd
+    helm.toolkit.fluxcd.io/name: argocd
+    helm.toolkit.fluxcd.io/namespace: bigbang
 spec:
   selector:
+    app.kubernetes.io/component: master
+    app.kubernetes.io/instance: argocd-argocd
     app.kubernetes.io/name: redis
   ports:
-    - protocol: TCP
+    - name: tcp-redis
+      protocol: TCP
       port: 6379
-      targetPort: 6379
+      targetPort: redis
+  type: ClusterIP
 
 ---
 apiVersion: v1
