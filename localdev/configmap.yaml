@@ -1,3 +1,5 @@
+domain: gw.local
+
 flux:
   interval: 2m
   rollback:
