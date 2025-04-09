@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: argocd
+  name: external-redis
   annotations:
     meta.helm.sh/release-name: bigbang
     meta.helm.sh/release-namespace: bigbang
@@ -13,7 +13,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: redis
-  namespace: argocd
+  namespace: external-redis
 spec:
   containers:
   - name: redis
@@ -49,20 +49,21 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis
-  namespace: argocd
+  namespace: external-redis
 spec:
+  type: ExternalName
+  externalName: redis.svc.cluster.local
   ports:
     - name: tcp-redis
       protocol: TCP
       port: 6379
       targetPort: redis
-  type: ClusterIP
 
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  namespace: argocd
+  namespace: external-redis
   name: redis-config
 data:
   redis-config: |

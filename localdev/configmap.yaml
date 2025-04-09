@@ -184,7 +184,7 @@ addons:
   argocd:
     enabled: true
     redis:
-      host: redis
+      host: redis.svc.cluster.local
       port: 6379
     sso:
       client_id: "il2_eb21db65-3118-4017-bfe7-86829038d3dc_apps" #gitleaks:allow
