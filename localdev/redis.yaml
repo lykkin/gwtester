@@ -14,11 +14,13 @@ kind: Deployment
 metadata:
   name: redis
   namespace: external-redis
+  labels:
+    app: redis
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: redis
+      app: redis
   template:
     metadata:
       name: redis
