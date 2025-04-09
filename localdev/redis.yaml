@@ -62,6 +62,8 @@ metadata:
   name: redis
   namespace: external-redis
 spec:
+  selector:
+    app: redis
   type: ExternalName
   externalName: redis.svc.cluster.local
   ports:
