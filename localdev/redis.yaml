@@ -14,8 +14,6 @@ kind: Deployment
 metadata:
   name: redis
   namespace: external-redis
-  labels:
-    app: redis
 spec:
   replicas: 1
   selector:
@@ -23,6 +21,8 @@ spec:
       app: redis
   template:
     metadata:
+      labels:
+        app: redis
       name: redis
       namespace: external-redis
     spec:
