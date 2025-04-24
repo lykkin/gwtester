@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: external-redis
+  name: argocd
   annotations:
     meta.helm.sh/release-name: bigbang
     meta.helm.sh/release-namespace: bigbang
