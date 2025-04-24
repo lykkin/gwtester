@@ -35,7 +35,7 @@ tempo:
 
 loki:
   sourceType: helmRepo
-  enabled: false
+  enabled: true
   strategy: scalable
   values:
     minio:
@@ -79,7 +79,7 @@ loki:
             mode: PERMISSIVE
 promtail:
   sourceType: helmRepo
-  enabled: false
+  enabled: true
 
 kyverno:
   sourceType: helmRepo
@@ -183,9 +183,6 @@ addons:
           prefix: "APP.gw.local"
   argocd:
     enabled: true
-    redis:
-      host: redis
-      port: 6379
     sso:
       client_id: "il2_eb21db65-3118-4017-bfe7-86829038d3dc_apps" #gitleaks:allow
       client_secret: "123456789a"
@@ -201,9 +198,9 @@ addons:
       controller:
         extraArgs:
         - --repo-server-plaintext
-#      redis-bb:
-#        networkPolicy:
-#          enabled: false
+      redis-bb:
+        networkPolicy:
+          enabled: false
       argocd-apps:
         applications:
           - destination:

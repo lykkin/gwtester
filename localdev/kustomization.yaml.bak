@@ -14,7 +14,7 @@ configMapGenerator:
 resources:
 - ../base
 - ns-keycloak.yaml
-# - redis.yaml
+- redis.yaml
 
 patches:
 - patch: |-
